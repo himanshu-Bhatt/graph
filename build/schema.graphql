@@ -1,0 +1,60 @@
+type Activate @entity {
+  id: ID!
+  borrower: Bytes! # address
+  id: BigInt! # uint256
+  amount: BigInt! # uint256
+}
+
+type AddCollateral @entity {
+  id: ID!
+  borrower: Bytes! # address
+  id: BigInt! # uint256
+  amount: BigInt! # uint256
+}
+
+type Closed @entity {
+  id: ID!
+  lender: Bytes! # address
+  borrower: Bytes! # address
+  id: BigInt! # uint256
+}
+
+type Liquidate @entity {
+  id: ID!
+  borrower: Bytes! # address
+  remainingValue: BigInt! # uint256
+}
+
+type OwnershipTransferred @entity {
+  id: ID!
+  previousOwner: Bytes! # address
+  newOwner: Bytes! # address
+}
+
+type Propose @entity {
+  id: ID!
+  lender: Bytes! # address
+  id: BigInt! # uint256
+  amount: BigInt! # uint256
+}
+
+type Repaid @entity {
+  id: ID!
+  lender: Bytes! # address
+  id: BigInt! # uint256
+  amount: BigInt! # uint256
+}
+
+type Repay @entity {
+  id: ID!
+  borrower: Bytes! # address
+  id: BigInt! # uint256
+  amount: BigInt! # uint256
+}
+
+type WithdrawCollateral @entity {
+  id: ID!
+  borrower: Bytes! # address
+  id: BigInt! # uint256
+  amount: BigInt! # uint256
+}

@@ -7,8 +7,8 @@ import {
   Propose as ProposeEvent,
   Repaid as RepaidEvent,
   Repay as RepayEvent,
-  WithdrawCollateral as WithdrawCollateralEvent
-} from "../generated/Exchange/Exchange"
+  WithdrawCollateral as WithdrawCollateralEvent,
+} from "../generated/Exchange/Exchange";
 import {
   Activate,
   AddCollateral,
@@ -18,46 +18,46 @@ import {
   Propose,
   Repaid,
   Repay,
-  WithdrawCollateral
-} from "../generated/schema"
+  WithdrawCollateral,
+} from "../generated/schema";
 
 export function handleActivate(event: ActivateEvent): void {
   let entity = new Activate(
     event.transaction.hash.toHex() + "-" + event.logIndex.toString()
-  )
-  entity.borrower = event.params.borrower
-  entity.id = event.params.id
-  entity.amount = event.params.amount
-  entity.save()
+  );
+  entity.borrower = event.params.borrower;
+  entity.id = event.params.id.toString();
+  entity.amount = event.params.amount;
+  entity.save();
 }
 
 export function handleAddCollateral(event: AddCollateralEvent): void {
   let entity = new AddCollateral(
     event.transaction.hash.toHex() + "-" + event.logIndex.toString()
-  )
-  entity.borrower = event.params.borrower
-  entity.id = event.params.id
-  entity.amount = event.params.amount
-  entity.save()
+  );
+  entity.borrower = event.params.borrower;
+  entity.id = event.params.id.toString();
+  entity.amount = event.params.amount;
+  entity.save();
 }
 
 export function handleClosed(event: ClosedEvent): void {
   let entity = new Closed(
     event.transaction.hash.toHex() + "-" + event.logIndex.toString()
-  )
-  entity.lender = event.params.lender
-  entity.borrower = event.params.borrower
-  entity.id = event.params.id
-  entity.save()
+  );
+  entity.lender = event.params.lender;
+  entity.borrower = event.params.borrower;
+  entity.id = event.params.id.toString();
+  entity.save();
 }
 
 export function handleLiquidate(event: LiquidateEvent): void {
   let entity = new Liquidate(
     event.transaction.hash.toHex() + "-" + event.logIndex.toString()
-  )
-  entity.borrower = event.params.borrower
-  entity.remainingValue = event.params.remainingValue
-  entity.save()
+  );
+  entity.borrower = event.params.borrower;
+  entity.remainingValue = event.params.remainingValue;
+  entity.save();
 }
 
 export function handleOwnershipTransferred(
@@ -65,48 +65,48 @@ export function handleOwnershipTransferred(
 ): void {
   let entity = new OwnershipTransferred(
     event.transaction.hash.toHex() + "-" + event.logIndex.toString()
-  )
-  entity.previousOwner = event.params.previousOwner
-  entity.newOwner = event.params.newOwner
-  entity.save()
+  );
+  entity.previousOwner = event.params.previousOwner;
+  entity.newOwner = event.params.newOwner;
+  entity.save();
 }
 
 export function handlePropose(event: ProposeEvent): void {
   let entity = new Propose(
     event.transaction.hash.toHex() + "-" + event.logIndex.toString()
-  )
-  entity.lender = event.params.lender
-  entity.id = event.params.id
-  entity.amount = event.params.amount
-  entity.save()
+  );
+  entity.lender = event.params.lender;
+  entity.id = event.params.id.toString();
+  entity.amount = event.params.amount;
+  entity.save();
 }
 
 export function handleRepaid(event: RepaidEvent): void {
   let entity = new Repaid(
     event.transaction.hash.toHex() + "-" + event.logIndex.toString()
-  )
-  entity.lender = event.params.lender
-  entity.id = event.params.id
-  entity.amount = event.params.amount
-  entity.save()
+  );
+  entity.lender = event.params.lender;
+  entity.id = event.params.id.toString();
+  entity.amount = event.params.amount;
+  entity.save();
 }
 
 export function handleRepay(event: RepayEvent): void {
   let entity = new Repay(
     event.transaction.hash.toHex() + "-" + event.logIndex.toString()
-  )
-  entity.borrower = event.params.borrower
-  entity.id = event.params.id
-  entity.amount = event.params.amount
-  entity.save()
+  );
+  entity.borrower = event.params.borrower;
+  entity.id = event.params.id.toString();
+  entity.amount = event.params.amount;
+  entity.save();
 }
 
 export function handleWithdrawCollateral(event: WithdrawCollateralEvent): void {
   let entity = new WithdrawCollateral(
     event.transaction.hash.toHex() + "-" + event.logIndex.toString()
-  )
-  entity.borrower = event.params.borrower
-  entity.id = event.params.id
-  entity.amount = event.params.amount
-  entity.save()
+  );
+  entity.borrower = event.params.borrower;
+  entity.id = event.params.id.toString();
+  entity.amount = event.params.amount;
+  entity.save();
 }

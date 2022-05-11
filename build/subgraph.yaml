@@ -1,6 +1,6 @@
 specVersion: 0.0.2
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: Exchange
@@ -25,7 +25,7 @@ dataSources:
         - WithdrawCollateral
       abis:
         - name: Exchange
-          file: ./abis/Exchange.json
+          file: Exchange\abis\Exchange.json
       eventHandlers:
         - event: Activate(indexed address,indexed uint256,indexed uint256)
           handler: handleActivate
@@ -45,4 +45,4 @@ dataSources:
           handler: handleRepay
         - event: WithdrawCollateral(indexed address,indexed uint256,indexed uint256)
           handler: handleWithdrawCollateral
-      file: ./src/mapping.ts
+      file: Exchange\Exchange.wasm
